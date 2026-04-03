@@ -8,19 +8,74 @@
 int main() {
     // Definição das variáveis para armazenar as propriedades das cidades
     // Você pode utilizar o código do primeiro desafio
+    char estadoA, estadoB;
+    char codigoA, codigoB;
+    char nomeA, nomeB;
+    unsigned int populacaoA, populacaoB;
+    float areaA, areaB, pibA, pibB, desnidadeA, densidadeB, pibpercaptaA, pibpercaptaB;
+    int pontosturA, pontosturB;
 
+    
     
     // Cadastro das Cartas:
     // Implemente a lógica para solicitar ao usuário que insira os dados das cidades
     // utilizando a função scanf para capturar as entradas.
     // utilize o código do primeiro desafio
-
+   
     // Exemplo:
     // printf("Digite o código da cidade: ");
     // scanf("%s", codigo);
     // 
     // (Repita para cada propriedade)
+ printf("-----CADASTRANDO A PRIMEIRA CARTA ------\n");
+    printf("Digite o estado da primeira carta(Letra entre A-H): \n");
+    scanf("%s", &estadoA);
 
+    printf("Digite o codigo da carta(Estado cadastrado + 2 digitos - ex: A01): \n");
+    scanf("%s", &codigoA);
+
+    printf("Digite o nome da cidade: \n");
+    scanf("%s", &nomeA);
+
+    printf("Digite a populacão de sua cidade: \n");
+    scanf("%u", &populacaoA);
+
+    printf("Digite a area de sua cidade(Exemplo 50000.00): \n");
+    scanf("%f", &areaA);
+
+    printf("Digite o PIB de sua cidade(Exemplo: 100000000.00): \n");
+    scanf("%f", &pibA);
+
+    printf("Digite a quantidade de pontos turisticos tem sua cidade: \n");
+    scanf("%d", &pontosturA);
+
+    desnidadeA = (float) populacaoA * areaA;
+    pibpercaptaA = (float) pibA * populacaoA;
+
+    printf("-----CADASTRANDO A SEGUNDA CARTA ------\n");
+    printf("Digite o estado da segunda carta(Letra entre A-H, diferente da primeira carta): \n");
+    scanf("%s", &estadoB);
+
+    printf("Digite o codigo da carta(Estado cadastrado + 2 digitos - ex: A01): \n");
+    scanf("%s", &codigoB);
+
+    printf("Digite o nome da cidade: \n");
+    scanf("%s", &nomeB);
+
+    printf("Digite a populacão de sua cidade: \n");
+    scanf("%u", &populacaoB);
+
+    printf("Digite a area de sua cidade(Exemplo 50000.00): \n");
+    scanf("%f", &areaB);
+
+    printf("Digite o PIB de sua cidade(Exemplo: 100000000.00): \n");
+    scanf("%f", &pibB);
+
+    printf("Digite a quantidade de pontos turisticos tem sua cidade: \n");
+    scanf("%d", &pontosturB);
+
+    densidadeB = (float) populacaoB * areaB;
+    pibpercaptaB = (float) pibB * populacaoB;
     // Comparação de Cartas:
     // Desenvolva a lógica de comparação entre duas cartas.
     // Utilize estruturas de decisão como if, if-else para comparar atributos como população, área, PIB, etc.
@@ -38,6 +93,12 @@ int main() {
 
     // Exemplo:
     // printf("A cidade vencedora é: %s\n", cidadeVencedora);
-
+    if (pibA > pibB){
+        printf("O PIB da carta A é maior!");
+        printf("A carta A é vencedora!!!!");
+    } else {
+        printf("O PIB da carta B é maior!");
+        printf("A carta B é vencedora!!");
+    }    
     return 0;
 }
