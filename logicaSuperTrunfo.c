@@ -14,8 +14,8 @@ int main() {
     char nomeB[50];
     unsigned int populacaoA, populacaoB;
     float areaA, areaB, pibA, pibB, desnidadeA, densidadeB, pibpercaptaA, pibpercaptaB;
-    int pontosturA, pontosturB, escolha;
-
+    int pontosturA, pontosturB, escolha, escolha2;
+    double escolha_atribA1, escolha_atribA2, escolha_atribB1, escolha_atribB2, somacompara1, somacompara2, resultado;
     
     
     // Cadastro das Cartas:
@@ -108,117 +108,608 @@ int main() {
    
     //Adicionando menu interativo para o desafio intermediario
     printf(" **** COMPARANDO ATRIBUTOS ****\n");
-    printf("Escolha um atributo\n");
+    printf("Escolha o primeiro atributo\n");
     printf("1 - População\n");
     printf("2 - Area\n");
     printf("3 - PIB\n");
     printf("4 - Pontos Turisticos\n");
-    printf("5 - Densidade Demografican\n");
+    printf("5 - Densidade Demografica\n");
     printf("Qual sua escolha: ");
     scanf("%d", &escolha);
 
     switch (escolha){
-
-        case 1:
-            if (populacaoA > populacaoB) {
-                printf("Nome carta A: %s --- Nome Carta B: %s\n", nomeA, nomeB);
-                printf("O Atributo escolhido foi a POPULAÇÃO\n");
-                printf("População carta A: %u --- População Carta B: %u\n", populacaoA, populacaoB);
-                printf("Carta A venceu!!");
-            } else if(populacaoA < populacaoB) {
-                printf("Nome carta A: %s --- Nome Carta B: %s\n", nomeA, nomeB);
-                printf("O Atributo escolhido foi a POPULAÇÃO\n");
-                printf("População carta A: %u --- População Carta B: %u\n", populacaoA, populacaoB);
-                printf("Carta B venceu!!");
+        
+        case 1: 
+            escolha_atribA1 = populacaoA;
+            escolha_atribA2 = populacaoB;
+            //Escolhendo o segundo atributo
+             printf(" **** COMPARANDO ATRIBUTOS ****\n");
+             printf("Escolha o segundo atributo\n");
+             printf("2 - Area\n");
+             printf("3 - PIB\n");
+             printf("4 - Pontos Turisticos\n");
+             printf("5 - Densidade Demografica\n");
+             printf("Qual sua escolha: ");
+             scanf("%d", &escolha2);
             
-            } else {
-                printf("Nome carta A: %s --- Nome Carta B: %s\n", nomeA, nomeB);
-                printf("O Atributo escolhido foi a POPULAÇÃO\n");
-                printf("População carta A: %u --- População Carta B: %u\n", populacaoA, populacaoB);
-                printf("Empatou, ambos atributos são iguais.!!");
-            }
-            break;
-        
+             switch (escolha2){
+                case 2:
+                    escolha_atribB1 = areaA;
+                    escolha_atribB2 = areaB;
+                    somacompara1 = (float) escolha_atribA1 + escolha_atribB1;
+                    somacompara2 = (float) escolha_atribA1 + escolha_atribB2;
+                    resultado = somacompara1 > somacompara2 ? 1 : 0;
+                    if (resultado == 1){
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram População e Area: Carta A - População Carta A, com valor de: %d Area Carta A com valor de: %2.f ---- População Carta B com valor de: %d Area Carta B, com valor de: %.2f \n", populacaoA, areaA, populacaoB, areaB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("A carta vencedora foi a Carta A");
+                    } else if (resultado == 0) {
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram População e Area: Carta A - População Carta A, com valor de: %d Area Carta A com valor de: %2.f ---- População Carta B com valor de: %d Area Carta B, com valor de: %.2f \n", populacaoA, areaA, populacaoB, areaB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("A carta vencedora foi a Carta B");
+                    } else {
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram População e Area: Carta A - População Carta A, com valor de: %d Area Carta A com valor de: %2.f ---- População Carta B com valor de: %d Area Carta B, com valor de: %.2f \n", populacaoA, areaA, populacaoB, areaB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("Empatou, a soma dos atributos são iguais");
+
+                    }
+                    break;
+
+                case 3:
+                    escolha_atribB1 = pibB;
+                    escolha_atribB2 = pibB;
+                    somacompara1 = (float) escolha_atribA1 + escolha_atribB1;
+                    somacompara2 = (float) escolha_atribA1 + escolha_atribB2;
+                    resultado = somacompara1 > somacompara2 ? 1 : 0;
+                    if (resultado == 1){
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram População e PIB: Carta A - População Carta A, com valor de: %d PIB Carta A com valor de: %2.f ---- População Carta B com valor de: %d PIB Carta B, com valor de: %.2f \n", populacaoA, pibA, populacaoB, pibB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("A carta vencedora foi a Carta A");
+                    } else if (resultado == 0) {
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram População e PIB: Carta A - População Carta A, com valor de: %d PIB Carta A com valor de: %2.f ---- População Carta B com valor de: %d PIB Carta B, com valor de: %.2f \n", populacaoA, pibA, populacaoB, pibB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("A carta vencedora foi a Carta B");
+                    } else {
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram População e PIB: Carta A - População Carta A, com valor de: %d PIB Carta A com valor de: %2.f ---- População Carta B com valor de: %d PIB Carta B, com valor de: %.2f \n", populacaoA, pibA, populacaoB, pibB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("Empatou, a soma dos atributos são iguais");
+
+                    }
+                    break;
+
+                case 4:
+                    escolha_atribB1 = pontosturA;
+                    escolha_atribB2 = pontosturB;
+                    somacompara1 = (float) escolha_atribA1 + escolha_atribB1;
+                    somacompara2 = (float) escolha_atribA1 + escolha_atribB2;
+                    resultado = somacompara1 > somacompara2 ? 1 : 0;
+                    if (resultado == 1){
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram População e PONTOS TURISTICOS: Carta A - População Carta A, com valor de: %d PONTOS TURISTICOS Carta A com valor de: %2.f ---- População Carta B com valor de: %d PONTOS TURISTICOS Carta B, com valor de: %.2f \n", populacaoA, pontosturA, populacaoB, pontosturB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("A carta vencedora foi a Carta A");
+                    } else if (resultado == 0) {
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram População e PONTOS TURISTICOS: Carta A - População Carta A, com valor de: %d PONTOS TURISTICOS Carta A com valor de: %2.f ---- População Carta B com valor de: %d PONTOS TURISTICOS Carta B, com valor de: %.2f \n", populacaoA, pontosturA, populacaoB, pontosturB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("A carta vencedora foi a Carta B");
+                    } else {
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram População e PONTOS TURISTICOS: Carta A - População Carta A, com valor de: %d PONTOS TURISTICOS Carta A com valor de: %2.f ---- População Carta B com valor de: %d PONTOS TURISTICOS Carta B, com valor de: %.2f \n", populacaoA, pontosturA, populacaoB, pontosturB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("Empatou, a soma dos atributos são iguais");
+
+                    }
+                    break;
+
+                case 5:
+                    escolha_atribB1 = desnidadeA;
+                    escolha_atribB2 = densidadeB;
+                    somacompara1 = (float) escolha_atribA1 + escolha_atribB1;
+                    somacompara2 = (float) escolha_atribA1 + escolha_atribB2;
+                    resultado = somacompara1 < somacompara2 ? 1 : 0;
+                    if (resultado == 1){
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram População e DENSIDADE DEMOGRAFICA: Carta A - População Carta A, com valor de: %d DENSIDADE DEMOGRAFICA Carta A com valor de: %2.f ---- População Carta B com valor de: %d DENSIDADE DEMOGRAFICA Carta B, com valor de: %.2f \n", populacaoA, desnidadeA, populacaoB, densidadeB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("A carta vencedora foi a Carta A");
+                    } else if (resultado == 0) {
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram População e DENSIDADE DEMOGRAFICA: Carta A - População Carta A, com valor de: %d DENSIDADE DEMOGRAFICA Carta A com valor de: %2.f ---- População Carta B com valor de: %d DENSIDADE DEMOGRAFICA Carta B, com valor de: %.2f \n", populacaoA, desnidadeA, populacaoB, densidadeB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("A carta vencedora foi a Carta B");
+                    } else {
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram População e DENSIDADE DEMOGRAFICA: Carta A - População Carta A, com valor de: %d DENSIDADE DEMOGRAFICA Carta A com valor de: %2.f ---- População Carta B com valor de: %d DENSIDADE DEMOGRAFICA Carta B, com valor de: %.2f \n", populacaoA, desnidadeA, populacaoB, densidadeB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("Empatou, a soma dos atributos são iguais");
+
+                    }
+                    break;
+
+                default:
+                    printf("Opção Inválida!!");
+                    break;
+             }
+        break;
         case 2:
-            if (areaA > areaB){
-                printf("Nome carta A: %s --- Nome Carta B: %s\n", nomeA, nomeB);
-                printf("O Atributo escolhido foi a Área\n");
-                printf("Area da Carta A: %.2f KM² --- Area da carta B: %.2f KM²\n", areaA, areaB);
-                printf("Carta A venceu!!");
-            } else if (areaA < areaB){
-                printf("Nome carta A: %s --- Nome Carta B: %s\n", nomeA, nomeB);
-                printf("O Atributo escolhido foi a Área\n");
-                printf("Area da Carta A: %.2f KM² --- Area da carta B: %.2f KM²\n", areaA, areaB);
-                printf("Carta B venceu!!");
-            } else {
-                printf("Nome carta A: %s --- Nome Carta B: %s\n", nomeA, nomeB);
-                printf("O Atributo escolhido foi a Área\n");
-                printf("Area da Carta A: %.2f KM² --- Area da carta B: %.2f KM²\n", areaA, areaB);
-                printf("Empatou, ambos atributos são iguais.!!");
-            }
-            break;
+             escolha_atribA1 = areaA;
+             escolha_atribA2 = areaB;
+             //escolhendo segundo atributo
+             printf("Escolha o segundo, atributo\n");
+             printf("1 - População\n");
+             printf("3 - PIB\n");
+             printf("4 - Pontos Turisticos\n");
+             printf("5 - Densidade Demografican\n");
+             printf("Qual sua escolha: ");
+             scanf("%d", &escolha2);
 
+             switch (escolha2){
+
+                case 1: 
+                    escolha_atribB1 = populacaoA;
+                    escolha_atribB2 = populacaoB;
+                    somacompara1 = (float) escolha_atribA1 + escolha_atribB1;
+                    somacompara2 = (float) escolha_atribA1 + escolha_atribB2;
+                    resultado = somacompara1 > somacompara2 ? 1 : 0;
+                    if (resultado == 1){
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram Area e POPULAÇÃO: Carta A - Area Carta A, com valor de: %.2f POPULAÇÃO Carta A com valor de: %d ---- AREA Carta B com valor de: %.2f POPULAÇÃO Carta B, com valor de: %d \n", areaA, populacaoA, areaB, populacaoB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("A carta vencedora foi a Carta A");
+                    } else if (resultado == 0) {
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram Area e POPULAÇÃO: Carta A - Area Carta A, com valor de: %.2f POPULAÇÃO Carta A com valor de: %d ---- AREA Carta B com valor de: %.2f POPULAÇÃO Carta B, com valor de: %d \n", areaA, populacaoA, areaB, populacaoB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("A carta vencedora foi a Carta B");
+                    } else {
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram Area e POPULAÇÃO: Carta A - Area Carta A, com valor de: %.2f POPULAÇÃO Carta A com valor de: %d ---- AREA Carta B com valor de: %.2f POPULAÇÃO Carta B, com valor de: %d \n", areaA, populacaoA, areaB, populacaoB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("Empatou, a soma dos atributos são iguais");
+
+                    }
+                    break;
+
+                case 3:
+                    escolha_atribB1 = pibB;
+                    escolha_atribB2 = pibB;
+                    somacompara1 = (float) escolha_atribA1 + escolha_atribB1;
+                    somacompara2 = (float) escolha_atribA1 + escolha_atribB2;
+                    resultado = somacompara1 > somacompara2 ? 1 : 0;
+                    if (resultado == 1){
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram Area e PIB: Carta A - Area Carta A, com valor de: %.2f PIB Carta A com valor de: %.2f ---- AREA Carta B com valor de: %.2f PIB Carta B, com valor de: %.2f \n", areaA, pibA, areaB, pibB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("A carta vencedora foi a Carta A");
+                    } else if (resultado == 0) {
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram Area e PIB: Carta A - Area Carta A, com valor de: %.2f PIB Carta A com valor de: %.2f ---- AREA Carta B com valor de: %.2f PIB Carta B, com valor de: %.2f \n", areaA, pibA, areaB, pibB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("A carta vencedora foi a Carta B");
+                    } else {
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram Area e PIB: Carta A - Area Carta A, com valor de: %.2f PIB Carta A com valor de: %.2f ---- AREA Carta B com valor de: %.2f PIB Carta B, com valor de: %.2f \n", areaA, pibA, areaB, pibB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("Empatou, a soma dos atributos são iguais");
+
+                    }
+                    break;
+
+                case 4:
+                    escolha_atribB1 = pontosturA;
+                    escolha_atribB2 = pontosturB;
+                    somacompara1 = (float) escolha_atribA1 + escolha_atribB1;
+                    somacompara2 = (float) escolha_atribA1 + escolha_atribB2;
+                    resultado = somacompara1 > somacompara2 ? 1 : 0;
+                    if (resultado == 1){
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram Area e PONTOS TURISTICOS: Carta A - Area Carta A, com valor de: %.2f PONTOS TURISTICOS Carta A com valor de: %d ---- AREA Carta B com valor de: %.2f PONTOS TURISTICOS Carta B, com valor de: %d \n", areaA, pontosturA, areaB, pontosturB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("A carta vencedora foi a Carta A");
+                    } else if (resultado == 0) {
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram Area e PONTOS TURISTICOS: Carta A - Area Carta A, com valor de: %.2f PONTOS TURISTICOS Carta A com valor de: %d ---- AREA Carta B com valor de: %.2f PONTOS TURISTICOS Carta B, com valor de: %d \n", areaA, pontosturA, areaB, pontosturB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("A carta vencedora foi a Carta B");
+                    } else {
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram Area e PONTOS TURISTICOS: Carta A - Area Carta A, com valor de: %.2f PONTOS TURISTICOS Carta A com valor de: %d ---- AREA Carta B com valor de: %.2f PONTOS TURISTICOS Carta B, com valor de: %d \n", areaA, pontosturA, areaB, pontosturB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("Empatou, a soma dos atributos são iguais");
+                    }
+                    break;
+
+                case 5:
+                    escolha_atribB1 = desnidadeA;
+                    escolha_atribB2 = densidadeB;
+                    somacompara1 = (float) escolha_atribA1 + escolha_atribB1;
+                    somacompara2 = (float) escolha_atribA1 + escolha_atribB2;
+                    resultado = somacompara1 < somacompara2 ? 1 : 0;
+                    if (resultado == 1){
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram Area e DENSIDADE DEMOGRAFICA: Carta A - Area Carta A, com valor de: %.2f DENSIDADE DEMOGRAFICA Carta A com valor de: %.2f ---- AREA Carta B com valor de: %.2f DENSIDADE DEMOGRAFICA Carta B, com valor de: %.2f \n", areaA, desnidadeA, areaB, densidadeB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("A carta vencedora foi a Carta A");
+                    } else if (resultado == 0) {
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram Area e DENSIDADE DEMOGRAFICA: Carta A - Area Carta A, com valor de: %.2f DENSIDADE DEMOGRAFICA Carta A com valor de: %.2f ---- AREA Carta B com valor de: %.2f DENSIDADE DEMOGRAFICA Carta B, com valor de: %.2f \n", areaA, desnidadeA, areaB, densidadeB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("A carta vencedora foi a Carta B");
+                    } else {
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram Area e DENSIDADE DEMOGRAFICA: Carta A - Area Carta A, com valor de: %.2f DENSIDADE DEMOGRAFICA Carta A com valor de: %.2f ---- AREA Carta B com valor de: %.2f DENSIDADE DEMOGRAFICA Carta B, com valor de: %.2f \n", areaA, desnidadeA, areaB, densidadeB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("Empatou, a soma dos atributos são iguais");
+                    }
+                    break;
+
+                default:
+                    printf("Opção Inválida!!");
+                    break;
+             }
+             break;
+        break;     
         case 3:
-            if (pibA > pibB) {
-                printf("Nome carta A: %s --- Nome Carta B: %s\n", nomeA, nomeB);
-                printf("O Atributo escolhido foi o PIB\n");
-                printf("PIB da Carta A: R$ %.2f Bilhões --- PIB da carta B: R$ %.2f Bilhões\n", pibA, pibB);
-                printf("Carta A venceu!!");
-            } else if (pibA < pibB) {
-                printf("Nome carta A: %s --- Nome Carta B: %s\n", nomeA, nomeB);
-                printf("O Atributo escolhido foi o PIB\n");
-                printf("PIB da Carta A: R$ %.2f Bilhões --- PIB da carta B: R$ %.2f Bilhões\n", pibA, pibB);
-                printf("Carta B venceu!!");
-            } else {
-                printf("Nome carta A: %s --- Nome Carta B: %s\n", nomeA, nomeB);
-                printf("O Atributo escolhido foi o PIB\n");
-                printf("PIB da Carta A: R$ %.2f Bilhões --- PIB da carta B: R$ %.2f Bilhões\n", pibA, pibB);
-                printf("Empatou, ambos atributos são iguais.!!");
-            }
-            break;
+             escolha_atribA1 = pibA;
+             escolha_atribA2 = pibB;
+             //escolhendo segundo atributo
+             printf("Escolha o segundo, atributo\n");
+             printf("1 - População\n");
+             printf("2 - Area\n");
+             printf("4 - Pontos Turisticos\n");
+             printf("5 - Densidade Demografican\n");
+             printf("Qual sua escolha: ");
+             scanf("%d", &escolha2);
 
+             switch (escolha2){
 
+                    case 1:
+                    escolha_atribB1 = populacaoA;
+                    escolha_atribB2 = populacaoB;
+                    somacompara1 = (float) escolha_atribA1 + escolha_atribB1;
+                    somacompara2 = (float) escolha_atribA1 + escolha_atribB2;
+                    resultado = somacompara1 > somacompara2 ? 1 : 0;
+                    if (resultado == 1){
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram PIB e POPULAÇÃO: Carta A - PIB Carta A, com valor de: %.2f POPULAÇÃO Carta A com valor de: %d ---- PIB Carta B com valor de: %.2f POPULAÇÃO Carta B, com valor de: %d \n", pibA, populacaoA, pibB, populacaoB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("A carta vencedora foi a Carta A");
+                    } else if (resultado == 0) {
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram PIB e POPULAÇÃO: Carta A - PIB Carta A, com valor de: %.2f POPULAÇÃO Carta A com valor de: %d ---- PIB Carta B com valor de: %.2f POPULAÇÃO Carta B, com valor de: %d \n", pibA, populacaoA, pibB, populacaoB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("A carta vencedora foi a Carta B");
+                    } else {
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram PIB e POPULAÇÃO: Carta A - PIB Carta A, com valor de: %.2f POPULAÇÃO Carta A com valor de: %d ---- PIB Carta B com valor de: %.2f POPULAÇÃO Carta B, com valor de: %d \n", pibA, populacaoA, pibB, populacaoB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("Empatou, a soma dos atributos são iguais");
+
+                    }
+                    break;
+
+                    case 2:
+                    escolha_atribB1 = areaA;
+                    escolha_atribB2 = areaB;
+                    somacompara1 = (float) escolha_atribA1 + escolha_atribB1;
+                    somacompara2 = (float) escolha_atribA1 + escolha_atribB2;
+                    resultado = somacompara1 > somacompara2 ? 1 : 0;
+                    if (resultado == 1){
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram PIB e Area: Carta A - PIB Carta A, com valor de: %.2f Area Carta A com valor de: %2.f ---- PIB Carta B com valor de: %.2f Area Carta B, com valor de: %.2f \n", pibA, areaA, pibB, areaB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("A carta vencedora foi a Carta A");
+                    } else if (resultado == 0) {
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram PIB e Area: Carta A - PIB Carta A, com valor de: %.2f Area Carta A com valor de: %2.f ---- PIB Carta B com valor de: %.2f Area Carta B, com valor de: %.2f \n", pibA, areaA, pibB, areaB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("A carta vencedora foi a Carta B");
+                    } else {
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram PIB e Area: Carta A - PIB Carta A, com valor de: %.2f Area Carta A com valor de: %2.f ---- PIB Carta B com valor de: %.2f Area Carta B, com valor de: %.2f \n", pibA, areaA, pibB, areaB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("Empatou, a soma dos atributos são iguais");
+
+                    }
+                    break;
+
+                case 4:
+                    escolha_atribB1 = pontosturA;
+                    escolha_atribB2 = pontosturB;
+                    somacompara1 = (float) escolha_atribA1 + escolha_atribB1;
+                    somacompara2 = (float) escolha_atribA1 + escolha_atribB2;
+                    resultado = somacompara1 > somacompara2 ? 1 : 0;
+                    if (resultado == 1){
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram PIB e PONTOS TURISTICOS: Carta A - PIB Carta A, com valor de: %.2f PONTOS TURISTICOS Carta A com valor de: %d ---- PIB Carta B com valor de: %.2f PONTOS TURISTICOS Carta B, com valor de: %d \n", pibA, pontosturA, pibB, pontosturB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("A carta vencedora foi a Carta A");
+                    } else if (resultado == 0) {
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram PIB e PONTOS TURISTICOS: Carta A - PIB Carta A, com valor de: %.2f PONTOS TURISTICOS Carta A com valor de: %d ---- PIB Carta B com valor de: %.2f PONTOS TURISTICOS Carta B, com valor de: %d \n", pibA, pontosturA, pibB, pontosturB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("A carta vencedora foi a Carta B");
+                    } else {
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram PIB e PONTOS TURISTICOS: Carta A - PIB Carta A, com valor de: %.2f PONTOS TURISTICOS Carta A com valor de: %d ---- PIB Carta B com valor de: %.2f PONTOS TURISTICOS Carta B, com valor de: %d \n", pibA, pontosturA, pibB, pontosturB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("Empatou, a soma dos atributos são iguais");
+                    }
+                    break;
+
+                case 5:
+                    escolha_atribB1 = desnidadeA;
+                    escolha_atribB2 = densidadeB;
+                    somacompara1 = (float) escolha_atribA1 + escolha_atribB1;
+                    somacompara2 = (float) escolha_atribA1 + escolha_atribB2;
+                    resultado = somacompara1 < somacompara2 ? 1 : 0;
+                    if (resultado == 1){
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram PIB e DENSIDADE DEMOGRAFICA: Carta A - PIB Carta A, com valor de: %.2f DENSIDADE DEMOGRAFICA Carta A com valor de: %.2f ---- PIB Carta B com valor de: %.2f DENSIDADE DEMOGRAFICA Carta B, com valor de: %.2f \n", pibA, desnidadeA, pibB, densidadeB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("A carta vencedora foi a Carta A");
+                    } else if (resultado == 0) {
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram PIB e DENSIDADE DEMOGRAFICA: Carta A - PIB Carta A, com valor de: %.2f DENSIDADE DEMOGRAFICA Carta A com valor de: %.2f ---- PIB Carta B com valor de: %.2f DENSIDADE DEMOGRAFICA Carta B, com valor de: %.2f \n", pibA, desnidadeA, pibB, densidadeB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("A carta vencedora foi a Carta B");
+                    } else {
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram PIB e DENSIDADE DEMOGRAFICA: Carta A - PIB Carta A, com valor de: %.2f DENSIDADE DEMOGRAFICA Carta A com valor de: %.2f ---- PIB Carta B com valor de: %.2f DENSIDADE DEMOGRAFICA Carta B, com valor de: %.2f \n", pibA, desnidadeA, pibB, densidadeB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("Empatou, a soma dos atributos são iguais");
+                    }
+                    break;
+
+                default:
+                    printf("Opção Inválida!!");
+                    break;
+             }
         case 4:
-            if (pontosturA > pontosturB){
-                printf("Nome carta A: %s --- Nome Carta B: %s\n", nomeA, nomeB);
-                printf("O Atributo escolhido foi Pontos Turisticos\n");
-                printf("Pontos Turisticos da Carta A: %d --- Pontos turisticos da carta B: %d\n", pontosturA, pontosturB);
-                printf("Carta A venceu!!");                
-            } else if (pontosturA < pontosturB) {
-                printf("Nome carta A: %s --- Nome Carta B: %s\n", nomeA, nomeB);
-                printf("O Atributo escolhido foi Pontos Turisticos\n");
-                printf("Pontos Turisticos da Carta A: %d --- Pontos turisticos da carta B: %d\n", pontosturA, pontosturB);
-                printf("Carta B venceu!!");
-            } else {
-                printf("Nome carta A: %s --- Nome Carta B: %s\n", nomeA, nomeB);
-                printf("O Atributo escolhido foi Pontos Turisticos\n");
-                printf("Pontos Turisticos da Carta A: %d --- Pontos turisticos da carta B: %d\n", pontosturA, pontosturB);
-                printf("Empatou, ambos atributos são iguais.!!");
-            }
-            break;
+             escolha_atribA1 = pontosturA;
+             escolha_atribA2 = pontosturB;
+             //escolhendo segundo atributo
+             printf("Escolha o segundo, atributo\n");
+             printf("1 - População\n");
+             printf("2 - Area\n");
+             printf("3 - PIB\n");
+             printf("5 - Densidade Demografican\n");
+             printf("Qual sua escolha: ");
+             scanf("%d", &escolha2);
 
+             switch (escolha2){
+                case 1:
+                    escolha_atribB1 = populacaoA;
+                    escolha_atribB2 = populacaoB;
+                    somacompara1 = (float) escolha_atribA1 + escolha_atribB1;
+                    somacompara2 = (float) escolha_atribA1 + escolha_atribB2;
+                    resultado = somacompara1 > somacompara2 ? 1 : 0;
+                    if (resultado == 1){
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram PONTOS TURISTICOS e POPULAÇÃO: Carta A - PONTOS TURISTICOS Carta A, com valor de: %.d POPULAÇÃO Carta A com valor de: %d ---- PONTOS TURISTICOS Carta B com valor de: %.2f POPULAÇÃO Carta B, com valor de: %d \n", pontosturA, populacaoA, pontosturB, populacaoB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("A carta vencedora foi a Carta A");
+                    } else if (resultado == 0) {
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram PONTOS TURISTICOS e POPULAÇÃO: Carta A - PONTOS TURISTICOS Carta A, com valor de: %.d POPULAÇÃO Carta A com valor de: %d ---- PONTOS TURISTICOS Carta B com valor de: %.2f POPULAÇÃO Carta B, com valor de: %d \n", pontosturA, populacaoA, pontosturB, populacaoB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("A carta vencedora foi a Carta B");
+                    } else {
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram PONTOS TURISTICOS e POPULAÇÃO: Carta A - PONTOS TURISTICOS Carta A, com valor de: %.d POPULAÇÃO Carta A com valor de: %d ---- PONTOS TURISTICOS Carta B com valor de: %.2f POPULAÇÃO Carta B, com valor de: %d \n", pontosturA, populacaoA, pontosturB, populacaoB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("Empatou, a soma dos atributos são iguais");
+
+                    }
+                    break;
+                case 2:
+                    escolha_atribB1 = areaA;
+                    escolha_atribB2 = areaB;
+                    somacompara1 = (float) escolha_atribA1 + escolha_atribB1;
+                    somacompara2 = (float) escolha_atribA1 + escolha_atribB2;
+                    resultado = somacompara1 > somacompara2 ? 1 : 0;
+                    if (resultado == 1){
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram PONTOS TURISTICOS e Area: PONTOS TURISTICOS Carta A, com valor de: %d Area Carta A com valor de: %2.f ---- PONTOS TURISTICOS Carta B com valor de: %.d Area Carta B, com valor de: %.2f \n", pontosturA, areaA, pontosturB, areaB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("A carta vencedora foi a Carta A");
+                    } else if (resultado == 0) {
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram PONTOS TURISTICOS e Area: PONTOS TURISTICOS Carta A, com valor de: %d Area Carta A com valor de: %2.f ---- PONTOS TURISTICOS Carta B com valor de: %.d Area Carta B, com valor de: %.2f \n", pontosturA, areaA, pontosturB, areaB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("A carta vencedora foi a Carta B");
+                    } else {
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram PONTOS TURISTICOS e Area: PONTOS TURISTICOS Carta A, com valor de: %d Area Carta A com valor de: %2.f ---- PONTOS TURISTICOS Carta B com valor de: %.d Area Carta B, com valor de: %.2f \n", pontosturA, areaA, pontosturB, areaB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("Empatou, a soma dos atributos são iguais");
+
+                    }
+                    break;
+                
+                case 3:
+                    escolha_atribB1 = pibB;
+                    escolha_atribB2 = pibB;
+                    somacompara1 = (float) escolha_atribA1 + escolha_atribB1;
+                    somacompara2 = (float) escolha_atribA1 + escolha_atribB2;
+                    resultado = somacompara1 > somacompara2 ? 1 : 0;
+                    if (resultado == 1){
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram PONTOS TURISTICOS e PIB: PONTOS TURISTICOS Carta A, com valor de: %d PIB Carta A com valor de: %.2f ---- PONTOS TURISTICOS Carta B com valor de: %d PIB Carta B, com valor de: %.2f \n", pontosturA, pibA, pontosturB, pibB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("A carta vencedora foi a Carta A");
+                    } else if (resultado == 0) {
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram Area e PIB: Carta A - Area Carta A, com valor de: %.2f PIB Carta A com valor de: %.2f ---- AREA Carta B com valor de: %.2f PIB Carta B, com valor de: %.2f \n", areaA, pibA, areaB, pibB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("A carta vencedora foi a Carta B");
+                    } else {
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram Area e PIB: Carta A - Area Carta A, com valor de: %.2f PIB Carta A com valor de: %.2f ---- AREA Carta B com valor de: %.2f PIB Carta B, com valor de: %.2f \n", areaA, pibA, areaB, pibB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("Empatou, a soma dos atributos são iguais");
+
+                    }
+                    break;
+                case 5:
+                    escolha_atribB1 = desnidadeA;
+                    escolha_atribB2 = densidadeB;
+                    somacompara1 = (float) escolha_atribA1 + escolha_atribB1;
+                    somacompara2 = (float) escolha_atribA1 + escolha_atribB2;
+                    resultado = somacompara1 < somacompara2 ? 1 : 0;
+                    if (resultado == 1){
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram PONTOS TURISTICOS e DENSIDADE DEMOGRAFICA: PONTOS TURISTICOS Carta A, com valor de: %d DENSIDADE DEMOGRAFICA Carta A com valor de: %.2f ---- PONTOS TURISTICOS Carta B com valor de: %d DENSIDADE DEMOGRAFICA Carta B, com valor de: %.2f \n", pontosturA, desnidadeA, pontosturB, densidadeB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("A carta vencedora foi a Carta A");
+                    } else if (resultado == 0) {
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram PIB e DENSIDADE DEMOGRAFICA: Carta A - PIB Carta A, com valor de: %.2f DENSIDADE DEMOGRAFICA Carta A com valor de: %.2f ---- PIB Carta B com valor de: %.2f DENSIDADE DEMOGRAFICA Carta B, com valor de: %.2f \n", pibA, desnidadeA, pibB, densidadeB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("A carta vencedora foi a Carta B");
+                    } else {
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram PIB e DENSIDADE DEMOGRAFICA: Carta A - PIB Carta A, com valor de: %.2f DENSIDADE DEMOGRAFICA Carta A com valor de: %.2f ---- PIB Carta B com valor de: %.2f DENSIDADE DEMOGRAFICA Carta B, com valor de: %.2f \n", pibA, desnidadeA, pibB, densidadeB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("Empatou, a soma dos atributos são iguais");
+                    }
+                    break;
+
+
+
+             } 
+             default:
+                    printf("Opção Inválida!!");
+                    break;
+                    
         case 5:
-            if (desnidadeA < densidadeB){
-                printf("Nome carta A: %s --- Nome Carta B: %s\n", nomeA, nomeB);
-                printf("O Atributo escolhido foi Densidade Demográfica\n");
-                printf("Densidade Demográfica Carta A: %.2f hab/km² --- Densidade Demográfica Carta B: %.2f hab/km²\n", desnidadeA, densidadeB);
-                printf("Carta A venceu!!");
-            } else if (desnidadeA, densidadeB) {
-                printf("Nome carta A: %s --- Nome Carta B: %s\n", nomeA, nomeB);
-                printf("O Atributo escolhido foi Densidade Demográfica\n");
-                printf("Densidade Demográfica Carta A: %.2f hab/km² --- Densidade Demográfica Carta B: %.2f hab/km²\n", desnidadeA, densidadeB);
-                printf("Carta B venceu!!");
-            } else {
-                printf("Nome carta A: %s --- Nome Carta B: %s\n", nomeA, nomeB);
-                printf("O Atributo escolhido foi Densidade Demográfica\n");
-                printf("Densidade Demográfica Carta A: %.2f hab/km² --- Densidade Demográfica Carta B: %.2f hab/km²\n", desnidadeA, densidadeB);
-                printf("Empatou, ambos atributos são iguais.!!");
-            }
-            break;
-        
-        default:
-            printf("Opção inválida!!");
-            break;
+             escolha_atribA1 = desnidadeA;
+             escolha_atribA2 = densidadeB;
+             //escolhendo segundo atributo
+             printf("Escolha o segundo, atributo\n");
+             printf("1 - População\n");
+             printf("2 - Area\n");
+             printf("3 - PIB\n");
+             printf("4 - Pontos Turisticos\n");
+             printf("Qual sua escolha: ");
+             scanf("%d", &escolha2);
+
+             switch (escolha2){
+
+                case 1:
+                    escolha_atribB1 = populacaoA;
+                    escolha_atribB2 = populacaoB;
+                    somacompara1 = (float) escolha_atribA1 + escolha_atribB1;
+                    somacompara2 = (float) escolha_atribA1 + escolha_atribB2;
+                    resultado = somacompara1 > somacompara2 ? 1 : 0;
+                    if (resultado == 1){
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram DENSIDADE DEMOGRAFICA e POPULAÇÃO: DENSIDADE DEMOGRAFICA Carta A, com valor de: %.2f POPULAÇÃO Carta A com valor de: %d ---- DENSIDADE DEMOGRAFICA Carta B com valor de: %.2f POPULAÇÃO Carta B, com valor de: %d \n", desnidadeA, populacaoA, densidadeB, populacaoB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("A carta vencedora foi a Carta A");
+                    } else if (resultado == 0) {
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram DENSIDADE DEMOGRAFICA e POPULAÇÃO: DENSIDADE DEMOGRAFICA Carta A, com valor de: %.2f POPULAÇÃO Carta A com valor de: %d ---- DENSIDADE DEMOGRAFICA Carta B com valor de: %.2f POPULAÇÃO Carta B, com valor de: %d \n", desnidadeA, populacaoA, densidadeB, populacaoB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("A carta vencedora foi a Carta B");
+                    } else {
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram DENSIDADE DEMOGRAFICA e POPULAÇÃO: DENSIDADE DEMOGRAFICA Carta A, com valor de: %.2f POPULAÇÃO Carta A com valor de: %d ---- DENSIDADE DEMOGRAFICA Carta B com valor de: %.2f POPULAÇÃO Carta B, com valor de: %d \n", desnidadeA, populacaoA, densidadeB, populacaoB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("Empatou, a soma dos atributos são iguais");
+
+                    }
+                    break;
+
+                case 2:
+                    escolha_atribB1 = areaA;
+                    escolha_atribB2 = areaB;
+                    somacompara1 = (float) escolha_atribA1 + escolha_atribB1;
+                    somacompara2 = (float) escolha_atribA1 + escolha_atribB2;
+                    resultado = somacompara1 > somacompara2 ? 1 : 0;
+                    if (resultado == 1){
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram DENSIDADE DEMOGRAFICA e Area: DENSIDADE DEMOGRAFICA Carta A, com valor de: %.2f Area Carta A com valor de: %2.f ---- DENSIDADE DEMOGRAFICA Carta B com valor de: %.2f Area Carta B, com valor de: %.2f \n", desnidadeA, areaA, densidadeB, areaB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("A carta vencedora foi a Carta A");
+                    } else if (resultado == 0) {
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram DENSIDADE DEMOGRAFICA e Area: DENSIDADE DEMOGRAFICA Carta A, com valor de: %.2f Area Carta A com valor de: %2.f ---- DENSIDADE DEMOGRAFICA Carta B com valor de: %.2f Area Carta B, com valor de: %.2f \n", desnidadeA, areaA, densidadeB, areaB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("A carta vencedora foi a Carta B");
+                    } else {
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram DENSIDADE DEMOGRAFICA e Area: DENSIDADE DEMOGRAFICA Carta A, com valor de: %.2f Area Carta A com valor de: %2.f ---- DENSIDADE DEMOGRAFICA Carta B com valor de: %.2f Area Carta B, com valor de: %.2f \n", desnidadeA, areaA, densidadeB, areaB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("Empatou, a soma dos atributos são iguais");
+
+                    }
+                    break;
+
+                case 3:
+                    escolha_atribB1 = pibB;
+                    escolha_atribB2 = pibB;
+                    somacompara1 = (float) escolha_atribA1 + escolha_atribB1;
+                    somacompara2 = (float) escolha_atribA1 + escolha_atribB2;
+                    resultado = somacompara1 > somacompara2 ? 1 : 0;
+                    if (resultado == 1){
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram DENSIDADE DEMOGRAFICA e PIB: DENSIDADE DEMOGRAFICA Carta A, com valor de: %.2f PIB Carta A com valor de: %.2f ---- DENSIDADE DEMOGRAFICA Carta B com valor de: %.2f PIB Carta B, com valor de: %.2f \n", desnidadeA, pibA, densidadeB, pibB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("A carta vencedora foi a Carta A");
+                    } else if (resultado == 0) {
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram DENSIDADE DEMOGRAFICA e PIB: DENSIDADE DEMOGRAFICA Carta A, com valor de: %.2f PIB Carta A com valor de: %.2f ---- DENSIDADE DEMOGRAFICA Carta B com valor de: %.2f PIB Carta B, com valor de: %.2f \n", desnidadeA, pibA, densidadeB, pibB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("A carta vencedora foi a Carta B");
+                    } else {
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram DENSIDADE DEMOGRAFICA e PIB: DENSIDADE DEMOGRAFICA Carta A, com valor de: %.2f PIB Carta A com valor de: %.2f ---- DENSIDADE DEMOGRAFICA Carta B com valor de: %.2f PIB Carta B, com valor de: %.2f \n", desnidadeA, pibA, densidadeB, pibB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("Empatou, a soma dos atributos são iguais");
+
+                    }
+                    break;
+
+                case 4:
+                    escolha_atribB1 = pontosturA;
+                    escolha_atribB2 = pontosturB;
+                    somacompara1 = (float) escolha_atribA1 + escolha_atribB1;
+                    somacompara2 = (float) escolha_atribA1 + escolha_atribB2;
+                    resultado = somacompara1 > somacompara2 ? 1 : 0;
+                    if (resultado == 1){
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram DENSIDADE DEMOGRAFICA e PONTOS TURISTICOS: DENSIDADE DEMOGRAFICA Carta A, com valor de: %.2f PONTOS TURISTICOS Carta A com valor de: %d ---- DENSIDADE DEMOGRAFICA Carta B com valor de: %.2f PONTOS TURISTICOS Carta B, com valor de: %d \n", desnidadeA, pontosturA, densidadeB, pontosturB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("A carta vencedora foi a Carta A");
+                    } else if (resultado == 0) {
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram DENSIDADE DEMOGRAFICA e PONTOS TURISTICOS: DENSIDADE DEMOGRAFICA Carta A, com valor de: %.2f PONTOS TURISTICOS Carta A com valor de: %d ---- DENSIDADE DEMOGRAFICA Carta B com valor de: %.2f PONTOS TURISTICOS Carta B, com valor de: %d \n", desnidadeA, pontosturA, densidadeB, pontosturB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("A carta vencedora foi a Carta B");
+                    } else {
+                        printf("O nome dos paises são: Carta A = %s ---- Carta B = %s \n", nomeA, nomeB);
+                        printf("Os atributos escolhidos foram DENSIDADE DEMOGRAFICA e PONTOS TURISTICOS: DENSIDADE DEMOGRAFICA Carta A, com valor de: %.2f PONTOS TURISTICOS Carta A com valor de: %d ---- DENSIDADE DEMOGRAFICA Carta B com valor de: %.2f PONTOS TURISTICOS Carta B, com valor de: %d \n", desnidadeA, pontosturA, densidadeB, pontosturB);
+                        printf("A soma dos atributos são: Carta A com valor de: %.2f ---- Carta B com valor de: %.2f \n", somacompara1, somacompara2);
+                        printf("Empatou, a soma dos atributos são iguais");
+                    }
+                    break;
+
+             default:
+                printf("Opção Inválida!!");
+                break;
+             } 
+            
+             
     return 0;
-        }
+       
+    }
+
 }
